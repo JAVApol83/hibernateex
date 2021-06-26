@@ -4,6 +4,7 @@ import entities.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.math.BigDecimal;
 
 public class EntityProgram {
 
@@ -20,8 +21,14 @@ public class EntityProgram {
 
         em.getTransaction().begin();
 
-        em.persist(new Item());
-        em.persist(new Item());
+        Item item1 = new Item();
+        item1.setInitialPrice(new BigDecimal(55.0d));
+
+        Item item2 = new Item();
+        // item2.setInitialPrice(new BigDecimal(55.0d));
+
+        em.persist(item1);
+        em.persist(item2);
 
         User user1 = new User("jkowalski", "IT");
         user1.setBrutto(10000.0d);
