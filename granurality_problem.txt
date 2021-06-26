@@ -1,0 +1,43 @@
+OOP
+
+private class User {
+    private String name;
+    private Address address;
+    private List<Ticket> tickets;
+}
+
+private class Ticket {
+    private String number;
+    private User user;
+}
+
+private class Address {
+    private String country;
+    private String street;
+    private String postalCode;
+    private String houseNumber;
+}
+
+== - referencja
+equals - logiczny
+
+DB
+
+create table USERS (
+    ID integeger not null,
+    NAME VARCHAR(255),
+    -- ADDRESS VARCHAR(255),
+    COUNTRY VARCHAR(255),
+    STREET VARCHAR(255),
+    POSTAL_CODE VARCHAR(255),
+    HOUSE_NUMBER VARCHAR(255),
+    PRIMARY KEY(ID)
+)
+
+create table TICKETS (
+    ID integer not null,
+    NUMBER VARCHAR(255),
+    USER_ID VARCHAR(255),
+    PRIMARY KEY(NUMBER),
+    FOREIGN KEY USER_ID REFERENCES USERS(ID)
+)
