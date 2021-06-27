@@ -3,6 +3,9 @@ package airport;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.math.BigDecimal;
+import java.util.List;
 
 public class AirportProgram {
 
@@ -55,6 +58,22 @@ public class AirportProgram {
         trip4.addTicket(ticket1);
         trip4.addTicket(ticket4);
 
+        Payment payment1 = new Payment();
+        payment1.setTicket(ticket1);
+        payment1.setPrice(new BigDecimal(1000));
+
+        Payment payment2 = new Payment();
+        payment2.setTicket(ticket2);
+        payment2.setPrice(new BigDecimal(2000));
+
+        Payment payment3 = new Payment();
+        payment3.setTicket(ticket3);
+        payment3.setPrice(new BigDecimal(3000));
+
+        Payment payment4 = new Payment();
+        payment4.setTicket(ticket4);
+        payment4.setPrice(new BigDecimal(4000));
+
         em.getTransaction().begin();
 
         em.persist(john);
@@ -67,8 +86,18 @@ public class AirportProgram {
         em.persist(trip2);
         em.persist(trip3);
         em.persist(trip4);
+        em.persist(payment1);
+        em.persist(payment2);
+        em.persist(payment3);
+        em.persist(payment4);
 
         em.getTransaction().commit();
+
+        Query query = em.createQuery("FROM Passenger");
+        List<Passenger> passengerList = query.getResultList();
+
+        Query query1 = em.createQuery("FROM Payment");
+        List<Payment> paymentList = query1.getResultList();
 
         // em.close();
         emf.close();
