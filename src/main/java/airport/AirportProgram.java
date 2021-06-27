@@ -17,7 +17,20 @@ public class AirportProgram {
         EntityManager em = emf.createEntityManager();
 
         Passenger john = new Passenger("John Smith");
+        Address johnAddress = new Address();
+        johnAddress.setCity("Boston");
+        johnAddress.setStreet("Flowers street");
+        johnAddress.setNumber("3");
+        johnAddress.setZipCode("123456");
+        john.setAddress(johnAddress);
+
         Passenger eve = new Passenger("Eve Stark");
+        Address eveAddress = new Address();
+        eveAddress.setCity("London");
+        eveAddress.setStreet("Fleet street");
+        eveAddress.setNumber("234");
+        eveAddress.setZipCode("683530");
+        eve.setAddress(eveAddress);
 
         Ticket ticket1 = new Ticket("AA1234");
         Ticket ticket2 = new Ticket("BB5678");
