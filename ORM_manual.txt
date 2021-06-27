@@ -18,3 +18,16 @@ passenger = new Passenger();
 passenger.setId(1);
 passenger.setName("john smith")
 passenger.setTickets(?)
+
+--------------------------
+załóżmy, że nie ma relacji jeden-do-wielu w OOP
+
+Passenger passenger = "SELECT * FROM PASSENGERS WHERE ID = 1"
+id = 1
+name = John Smith
+
+List<Ticket> tickets = "SELECT * FROM TICKETS WHERE PASSENGER_ID = 1"
+[ AA1234, 2021-06-22, 10 ] ...
+
+for (Ticket ticket in tickets)
+    Trip trip = "SELECT * FROM TRIPS WHERE TRIP_ID = ticket.id"
