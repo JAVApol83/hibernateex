@@ -1,0 +1,20 @@
+TICKETS
+
+ID  |   NAME    |   PASSENGER_ID
+1   |   AA1234  |   1
+2   |   BB5678  |   1
+
+PASSENGERS
+
+PASSENGER_ID    |   NAME        |
+1               |   john smith  |
+
+ticket = new Ticket();
+ticket.setId(1)
+ticket.setName("AA1234");
+ticket.setPassenger(new Passenger(id = 1, name = "john smith")
+
+passenger = new Passenger();
+passenger.setId(1);
+passenger.setName("john smith")
+passenger.setTickets(?)

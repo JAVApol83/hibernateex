@@ -1,6 +1,8 @@
 package airport;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "TICKETS")
@@ -17,6 +19,9 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "PASSENGER_ID")
     private Passenger passenger;
+
+    @ManyToMany
+    private List<Trip> trips = new ArrayList<>();
 
     public Ticket() {
     }
@@ -47,5 +52,13 @@ public class Ticket {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+    }
+
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    public void addTrip(Trip trip) {
+        trips.add(trip);
     }
 }
